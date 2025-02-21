@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Guessing number</h1>
+    <script>
+      let a = (Math.random() * 50) + 1;
+      let is = false;
+      let guess;
+      do {
+        user = prompt("Guess a number 1-50");
+        if (user === null) {
+          alert("Game cancelled!");
+          break;
+        }
+        user = parseInt(user);
+        if (user == a) {
+          alert("correct number");
+          is = true;
+        } else {
+          alert("wrong number");
+        }
+      } while (!is);
+    </script>
+  </body>
+</html>
