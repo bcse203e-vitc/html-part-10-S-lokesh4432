@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Pizza Order</h1>
+    <p>Pizza Size</p>
+    <label><input id="s1" type="radio" name="pi" value="Small">Small</label>
+    <label><input id="s2" type="radio" name="pi" value="Medium">Medium</label>
+    <label><input id="s3" type="radio" name="pi" value="Large">Large</label>
+    <p>Toppings</p>
+    <label><input id="t1" type="checkbox" name="to" value="Cheese">Cheese</label>
+    <label><input id="t2" type="checkbox" name="to" value="Mushrooms">Mushrooms</label>
+    <label><input id="t3" type="checkbox" name="to" value="Olives">Olives</label><br><br>
+    <button id="su">Submit</button>
+    <p id="summary"></p>
+
+    <script>
+        document.getElementById("su").addEventListener("click",function(){
+            let size=document.querySelector('input[name="pi"]:checked');
+            let toppings=document.querySelectorAll('input[name=to]:checked');
+            if(!size){
+                alert("select pizza size");
+            }
+            let toppingsList=Array.from(toppings).map(t => t.value);
+            let summary=`<strong>Order Summary:</strong><br>Pizza Size: ${size.value} <br> Toppings: ${toppingsList.length > 0 ? toppingsList.join(',') : 'none'}`;
+            document.getElementById("summary").innerHTML=summary;
+        });
+
+        
+
+    </script>
+</body>
+</html>
