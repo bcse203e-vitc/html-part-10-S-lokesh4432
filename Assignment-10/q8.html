@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country-State Selector</title>
+</head>
+<body>
+    <label>Country:</label>
+    <select id="country" onchange="updateStates()">
+        <option value="">Select Country</option>
+        <option value="USA">USA</option>
+        <option value="India">India</option>
+        <option value="UK">UK</option>
+    </select>
+
+    <label>State:</label>
+    <select id="state">
+        <option value="">Select State</option>
+    </select>
+
+    <script>
+        const states = {
+            USA: ["California", "Texas", "New York"],
+            India: ["Tamil Nadu", "Maharashtra", "Karnataka"],
+            UK: ["England", "Scotland", "Wales"]
+        };
+
+        function updateStates() {
+            let country = document.getElementById("country").value;
+            let stateDropdown = document.getElementById("state");
+            stateDropdown.innerHTML = '<option value="">Select State</option>';
+            if (country) {
+                states[country].forEach(state => {
+                    let option = new Option(state, state);
+                    stateDropdown.add(option);
+                });
+            }
+        }
+    </script>
+</body>
+</html>
